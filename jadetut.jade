@@ -1,0 +1,163 @@
+doctype
+
+html
+
+  include ./head.jade
+
+  body
+
+    div
+
+      p First Paragraph
+
+      p
+        | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+        br
+
+        | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+      p.
+        Lorem ipsum dolor sit <i>amet, consectetur adipiscing elit,</i> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      p(id="4th",
+      class="lorem_ipsum very_import").
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+      #2nd_div.lorem_ipsum.very_import
+        Duis This is how the world ends? Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+
+      ul
+        li#dino_list_item
+          a(href='#') Velociraptor
+        li#dino_list_item
+          a(href='#') T-Rex
+        li#dino_list_item
+          a(href='#') Allosaurus
+
+      ul
+        li#hero_list_item: a(href="#") Batman
+        li#hero_list_item: a(href="#") Superman
+        li#hero_list_item: a(href="#") Ironman
+
+      //- Won't see me. This is how you comment out
+
+
+      - myName = "Jefferson"
+      p Hello #{myName}
+      p 1234 * 5678 = #{1234 * 5678}
+      - website = "http://jeffersonsnow.com"
+      a(href="#{website}") Jeff's Site
+      
+      - heroes = ["Wonder Woman", "Super Girl", "Bat Girl"]
+      
+      ul 
+        li#hero_list_item: a(href="#") #{heroes[0]}
+        li#hero_list_item: a(href="#") #{heroes[1]}
+        li#hero_list_item: a(href="#") #{heroes[2]}
+      
+      -bq = "blockquote"
+      #{bq} A Bad Idea
+      
+      - batmanData = "Batman is a fictional superhero appearing in American comic books published by DC Comics. The character was created by artist Bob Kane and writer Bill Finger, and first appeared in Detective Comics #27 (1939). Originally named the Batman, the character is also referred to by such epithets as the Caped Crusader, the Dark Knight, and the World's Greatest Detective."
+      p= batmanData
+      
+      - fnI = {"type": "text", "name": "fName"}
+      
+      span First Name
+      input(type=fnI.type, name=fnI.name)
+      
+      - someInfo = "<i>Very Interesting</i>"
+      p!= someInfo
+      p !{somInfo}
+      
+      //- conditionals
+      
+      - date = new Date()
+      - hour = date.getHours()
+      - if ((hour >= 6) && (hour <=17)){
+        h3 Day Time
+      - } else {
+        h3 Night Time
+      - }
+      
+      - age = 18
+      if((age >= 16) && (age < 18))
+        h3 You Can Drive
+      else if age >= 18
+        h3 You can drive and vote
+      else 
+        h3 You can Wait till you're 16
+        
+      unless age >= 16
+        h3 You'll Drive at 16
+      else
+        h3 You can Drive
+      
+      - dayTime = ((hour>=6) && (hour<=17)) ? 'Day Time' : 'Night Time'
+      h3 #{dayTime}
+      
+      - name = "Sue"
+      case name
+        when "Sally"
+          h3 Hi Sally
+        when "Sue"
+          h3 Hi Sue
+        default
+          h3 Hi you!
+        
+      script.
+        console.log('Hello Jade')
+      
+      //- Looping
+      - qbs = ['Palmer', 'Brees', 'Rivers', 'Brady']
+      
+      ul
+        -for(i = 0; i < qbs.length; i++){
+          li= qbs[i]
+        -}
+      ul 
+        each qb in qbs
+          li= qb
+      
+      - i = 0
+        while i <= 20
+          li= i
+          - i++;
+      
+      mixin nflPlayer(name, pos, team)
+        li #{name} is the #{pos} for the #{team}
+      
+      ul#nflPlayers
+        +nflPlayer("Tom Brady", "Quarterback", "Patriots")
+        +nflPlayer("Magnar of Thenn", "Chief", "Hillmen")
+      
+      mixin copyr
+        | &#169;
+      
+      p
+        +copyr
+        | 2016
+      
+      mixin makeList()
+        ul
+          - args = Array.prototype.slice.call(arguments);
+          for items in args 
+            li= items
+      
+      +makeList("Dog", "Cat", "Fish")
+      
+      extends extende
+      block header
+        h3 The Title
+      
+      block content
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      
+      block append content2
+        p
+          | Appended Data
+      
+      block prepend content3
+        p
+          | I come First.
